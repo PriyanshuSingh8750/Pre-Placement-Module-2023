@@ -1,0 +1,32 @@
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+        ListNode* one=list1;
+        ListNode* two=list2;
+        ListNode* res= new ListNode(-1);
+        ListNode* three=res;
+        while(one!=nullptr && two!=nullptr){
+            if(one->val<two->val){
+                three->next=one;
+                one=one->next;
+            }
+            else{
+                three->next=two;
+                two=two->next;
+            }
+            three=three->next;
+        }
+        while(one!=nullptr){
+          three->next=one;
+           one=one->next;
+        three=three->next;
+        }
+        while(two!=nullptr){
+          three->next=two;
+           two=two->next;
+        three=three->next;
+        }
+        return res->next;
+        
+    }
+};
