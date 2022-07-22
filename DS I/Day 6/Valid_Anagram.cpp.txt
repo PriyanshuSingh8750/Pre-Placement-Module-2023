@@ -1,0 +1,13 @@
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+int Map_realword[26] = {0};
+int Map_change[26] = {0};
+
+for (char c : s) Map_realword[c - 'a'] += 1;
+for (char c : t) Map_change[c - 'a'] += 1;    
+for (int i = 0; i < 26; i++) if (Map_realword[i] != Map_change[i]) return false;
+
+return true;
+}
+};
